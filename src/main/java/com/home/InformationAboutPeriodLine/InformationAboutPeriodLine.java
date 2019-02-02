@@ -1,9 +1,9 @@
-package com.home.getInformationAboutPeriodLine;
+package com.home.InformationAboutPeriodLine;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class getInformationAboutPeriodLine {
+public class InformationAboutPeriodLine {
 
     public int countMinimumLinePeriod(String line) {
         char[] chars = line.toCharArray();
@@ -20,20 +20,20 @@ public class getInformationAboutPeriodLine {
         return minPeriod;
     }
 
-    public List<String> getLinePeriodList(String line) {
-        List <String> ListLinePeriod = new ArrayList <String>();
+    public List<String> parsingSimilarLine(String line) {
+        List <String> words = new ArrayList <>();
         char[] chars = line.toCharArray();
         int firstCharIndex = 0;
         StringBuilder builder = new StringBuilder();
-        for (int nextCharIndex = 0; nextCharIndex < chars.length; nextCharIndex++){
-            if (nextCharIndex != 0 && chars[firstCharIndex] == chars[nextCharIndex]){
-                ListLinePeriod.add(builder.toString());
-                firstCharIndex = nextCharIndex;
+        for (int i = 0; i < chars.length; i++){
+            if (i != 0 && chars[firstCharIndex] == chars[i]){
+                words.add(builder.toString());
+                firstCharIndex = i;
                 builder.delete(0, builder.length());
             }
-            builder.append(chars[nextCharIndex]);
+            builder.append(chars[i]);
         }
-        ListLinePeriod.add(builder.toString());
-        return ListLinePeriod;
+        words.add(builder.toString());
+        return words;
     }
 }

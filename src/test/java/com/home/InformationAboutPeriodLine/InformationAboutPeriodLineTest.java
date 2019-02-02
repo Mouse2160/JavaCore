@@ -1,4 +1,4 @@
-package com.home.getInformationAboutPeriodLine;
+package com.home.InformationAboutPeriodLine;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(JUnitParamsRunner.class)
-public class getInformationAboutPeriodLineTest {
+public class InformationAboutPeriodLineTest {
 
     @Test
     @Parameters(method = "testRequestLoan_Parameters_countMin")
     public void countMinimumLinePeriodTest(String line, int expectedPeriod){
-        getInformationAboutPeriodLine getInformationAboutPeriodline = new getInformationAboutPeriodLine();
-        int minLinePeriod = getInformationAboutPeriodline.countMinimumLinePeriod(line);
+        InformationAboutPeriodLine informationAboutPeriodline = new InformationAboutPeriodLine();
+        int minLinePeriod = informationAboutPeriodline.countMinimumLinePeriod(line);
         Assert.assertEquals(expectedPeriod, minLinePeriod);
     }
 
     @Test
     @Parameters(method = "testRequestLoan_Parameters_getList")
     public void getLinePeriodListTest(String line, List<String> expectedList) {
-        getInformationAboutPeriodLine getInformationAboutPeriodline = new getInformationAboutPeriodLine();
-        List<String> listPeriodLine = getInformationAboutPeriodline.getLinePeriodList(line);
+        InformationAboutPeriodLine informationAboutPeriodline = new InformationAboutPeriodLine();
+        List<String> listPeriodLine = informationAboutPeriodline.parsingSimilarLine(line);
         Assert.assertEquals(expectedList, listPeriodLine);
     }
 
